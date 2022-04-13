@@ -31,6 +31,20 @@ namespace QLCF
                 new DataColumn{ColumnName ="Số lượng",DataType=typeof(int)},
                 new DataColumn{ColumnName ="Giá",DataType=typeof (int)},
             });
+            LoadData();
+        }
+        public void LoadData()
+        {
+            string path = "data.txt";
+            StreamReader sr = new StreamReader(path);
+            string s;
+            while ((s = sr.ReadLine()) != null)
+            {
+                string[] m = s.Split(',');
+
+                data.Rows.Add(m[0], m[1], Convert.ToInt16(m[2]), Convert.ToInt16(m[3]));
+            }
+            sr.Close();
         }
 
         public List<Item> LayDanhSachMonTuFile()
@@ -102,13 +116,13 @@ namespace QLCF
         }
         public void SaveData()
         {
-            List<Item> list = new List<Item>();
             string Path = "data.txt";
-            
+            StreamWriter F = new StreamWriter(Path);
             foreach (DataRow i in data.Rows)
             {
-                    File.WriteAllText(Path, i[0] + "," + i[1] + "," + i[2] + "," + i[3] + "\n");
+                   F.WriteLine(i[0] + "," + i[1] + "," + i[2] + "," + i[3]);
             }
+            F.Close();
                
         }
 

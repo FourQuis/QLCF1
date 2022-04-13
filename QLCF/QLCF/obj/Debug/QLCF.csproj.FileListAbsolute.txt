@@ -20,3 +20,14 @@ D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.GenerateResource.cache
 D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.CoreCompileInputs.cache
 D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.exe
 D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.pdb
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\bin\Debug\QLCF.exe.config
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\bin\Debug\QLCF.exe
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\bin\Debug\QLCF.pdb
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.AssemblyReference.cache
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.SuggestedBindingRedirects.cache
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.Form1.resources
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.Properties.Resources.resources
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.GenerateResource.cache
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.CoreCompileInputs.cache
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.exe
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.pdb
