@@ -58,6 +58,7 @@
             this.btmangve = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.lbTenBan = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,7 +77,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(991, 555);
+            this.tabControl1.Size = new System.Drawing.Size(1005, 548);
             this.tabControl1.TabIndex = 3;
             // 
             // tabPage1
@@ -87,25 +88,28 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(983, 526);
+            this.tabPage1.Size = new System.Drawing.Size(997, 519);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Oder";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lbTenBan);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(490, 157);
+            this.panel2.Location = new System.Drawing.Point(490, 130);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(453, 267);
+            this.panel2.Size = new System.Drawing.Size(453, 294);
             this.panel2.TabIndex = 5;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 60);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(447, 261);
+            this.dataGridView1.Size = new System.Drawing.Size(450, 214);
             this.dataGridView1.TabIndex = 0;
             // 
             // panel1
@@ -118,12 +122,18 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(490, 18);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(453, 123);
+            this.panel1.Size = new System.Drawing.Size(453, 92);
             this.panel1.TabIndex = 4;
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.AllowDrop = true;
             this.numericUpDown1.Location = new System.Drawing.Point(381, 36);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(52, 23);
             this.numericUpDown1.TabIndex = 3;
@@ -149,9 +159,6 @@
             // cbbLoai
             // 
             this.cbbLoai.FormattingEnabled = true;
-            this.cbbLoai.Items.AddRange(new object[] {
-            "Thức ăn",
-            "Đồ uống"});
             this.cbbLoai.Location = new System.Drawing.Point(78, 12);
             this.cbbLoai.Name = "cbbLoai";
             this.cbbLoai.Size = new System.Drawing.Size(178, 24);
@@ -160,9 +167,9 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(17, 62);
+            this.label2.Location = new System.Drawing.Point(17, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 30);
+            this.label2.Size = new System.Drawing.Size(46, 24);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tên";
             // 
@@ -205,6 +212,7 @@
             this.btban1.TabIndex = 0;
             this.btban1.Text = "Bàn 1";
             this.btban1.UseVisualStyleBackColor = true;
+            this.btban1.Click += new System.EventHandler(this.button_click);
             // 
             // btban2
             // 
@@ -214,6 +222,7 @@
             this.btban2.TabIndex = 0;
             this.btban2.Text = "Bàn 2";
             this.btban2.UseVisualStyleBackColor = true;
+            this.btban2.Click += new System.EventHandler(this.button_click);
             // 
             // btban3
             // 
@@ -223,6 +232,7 @@
             this.btban3.TabIndex = 0;
             this.btban3.Text = "Bàn 3";
             this.btban3.UseVisualStyleBackColor = true;
+            this.btban3.Click += new System.EventHandler(this.button_click);
             // 
             // btban4
             // 
@@ -232,6 +242,7 @@
             this.btban4.TabIndex = 0;
             this.btban4.Text = "Bàn 4";
             this.btban4.UseVisualStyleBackColor = true;
+            this.btban4.Click += new System.EventHandler(this.button_click);
             // 
             // btban5
             // 
@@ -241,6 +252,7 @@
             this.btban5.TabIndex = 0;
             this.btban5.Text = "Bàn 5";
             this.btban5.UseVisualStyleBackColor = true;
+            this.btban5.Click += new System.EventHandler(this.button_click);
             // 
             // btban6
             // 
@@ -250,6 +262,7 @@
             this.btban6.TabIndex = 0;
             this.btban6.Text = "Bàn 6";
             this.btban6.UseVisualStyleBackColor = true;
+            this.btban6.Click += new System.EventHandler(this.button_click);
             // 
             // btban7
             // 
@@ -259,6 +272,7 @@
             this.btban7.TabIndex = 0;
             this.btban7.Text = "Bàn 7";
             this.btban7.UseVisualStyleBackColor = true;
+            this.btban7.Click += new System.EventHandler(this.button_click);
             // 
             // btban8
             // 
@@ -268,6 +282,7 @@
             this.btban8.TabIndex = 0;
             this.btban8.Text = "Bàn 8";
             this.btban8.UseVisualStyleBackColor = true;
+            this.btban8.Click += new System.EventHandler(this.button_click);
             // 
             // btban9
             // 
@@ -277,6 +292,7 @@
             this.btban9.TabIndex = 0;
             this.btban9.Text = "Bàn 9";
             this.btban9.UseVisualStyleBackColor = true;
+            this.btban9.Click += new System.EventHandler(this.button_click);
             // 
             // btban10
             // 
@@ -286,6 +302,7 @@
             this.btban10.TabIndex = 0;
             this.btban10.Text = "Bàn 10";
             this.btban10.UseVisualStyleBackColor = true;
+            this.btban10.Click += new System.EventHandler(this.button_click);
             // 
             // btban11
             // 
@@ -295,6 +312,7 @@
             this.btban11.TabIndex = 0;
             this.btban11.Text = "Bàn 11";
             this.btban11.UseVisualStyleBackColor = true;
+            this.btban11.Click += new System.EventHandler(this.button_click);
             // 
             // btban12
             // 
@@ -304,6 +322,7 @@
             this.btban12.TabIndex = 0;
             this.btban12.Text = "Bàn 12";
             this.btban12.UseVisualStyleBackColor = true;
+            this.btban12.Click += new System.EventHandler(this.button_click);
             // 
             // btban13
             // 
@@ -313,6 +332,7 @@
             this.btban13.TabIndex = 0;
             this.btban13.Text = "Bàn 13";
             this.btban13.UseVisualStyleBackColor = true;
+            this.btban13.Click += new System.EventHandler(this.button_click);
             // 
             // btban14
             // 
@@ -322,6 +342,7 @@
             this.btban14.TabIndex = 0;
             this.btban14.Text = "Bàn 14";
             this.btban14.UseVisualStyleBackColor = true;
+            this.btban14.Click += new System.EventHandler(this.button_click);
             // 
             // btban15
             // 
@@ -331,6 +352,7 @@
             this.btban15.TabIndex = 0;
             this.btban15.Text = "Bàn 15";
             this.btban15.UseVisualStyleBackColor = true;
+            this.btban15.Click += new System.EventHandler(this.button_click);
             // 
             // btmangve
             // 
@@ -340,6 +362,7 @@
             this.btmangve.TabIndex = 0;
             this.btmangve.Text = "Mang về";
             this.btmangve.UseVisualStyleBackColor = true;
+            this.btmangve.Click += new System.EventHandler(this.button_click);
             // 
             // tabPage2
             // 
@@ -361,20 +384,29 @@
             this.tabPage3.Text = "Thống kê";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // lbTenBan
+            // 
+            this.lbTenBan.AutoSize = true;
+            this.lbTenBan.Font = new System.Drawing.Font("MingLiU-ExtB", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenBan.Location = new System.Drawing.Point(174, 15);
+            this.lbTenBan.Name = "lbTenBan";
+            this.lbTenBan.Size = new System.Drawing.Size(0, 27);
+            this.lbTenBan.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 555);
+            this.ClientSize = new System.Drawing.Size(1005, 548);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "QUẢN LÝ TÍNH TIỀN CAFE";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -415,6 +447,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btthemmon;
+        private System.Windows.Forms.Label lbTenBan;
     }
 }
 

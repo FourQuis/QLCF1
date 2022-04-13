@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Item.cs" />
+    <Compile Include="QuanLi.cs" />
     <Compile Include="Quanlytinhtiencafe.cs">
       <SubType>Form</SubType>
     </Compile>

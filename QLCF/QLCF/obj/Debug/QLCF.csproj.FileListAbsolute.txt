@@ -9,3 +9,14 @@ D:\Nam2\.NET\QLCF\QLCF\obj\Debug\QLCF.csproj.GenerateResource.cache
 D:\Nam2\.NET\QLCF\QLCF\obj\Debug\QLCF.csproj.CoreCompileInputs.cache
 D:\Nam2\.NET\QLCF\QLCF\obj\Debug\QLCF.exe
 D:\Nam2\.NET\QLCF\QLCF\obj\Debug\QLCF.pdb
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\bin\Debug\QLCF.exe.config
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\bin\Debug\QLCF.exe
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\bin\Debug\QLCF.pdb
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.AssemblyReference.cache
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.SuggestedBindingRedirects.cache
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.Form1.resources
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.Properties.Resources.resources
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.GenerateResource.cache
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.CoreCompileInputs.cache
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.exe
+D:\hoccode\DOTNET\QLCF1\QLCF\QLCF\obj\Debug\QLCF.pdb
