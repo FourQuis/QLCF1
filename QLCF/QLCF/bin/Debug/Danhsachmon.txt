@@ -1,4 +1,0 @@
-Món 1, 1000, Thức uống,
-Món 2, 2000, Thức ăn,
-Món 3, 5000, Thức ăn,
-Món 4, 10000, Thức uống,

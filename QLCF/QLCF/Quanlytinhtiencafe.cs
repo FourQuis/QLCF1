@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -68,7 +69,7 @@ namespace QLCF
             while ((s = sr.ReadLine()) != null)
             {
                 string[] m = s.Split(',');
-                list.Add(new Item(m[0], Convert.ToInt32(m[1]), m[2]));
+                list.Add(new Item(m[2], Convert.ToInt32(m[1]), m[0]));
             }
             sr.Close();
             return list;
@@ -137,8 +138,11 @@ namespace QLCF
             F.Close();
 
         }
+
         private void button_click(object sender, EventArgs e)
         {
+            txttongtien.Text = tongtien().ToString();
+            
             Button button = (Button)sender;
             buttonc = button;
             tenban = button.Text;
@@ -152,13 +156,14 @@ namespace QLCF
             cbbtenmon.SelectedItem = null;
             cbbtenmon.Text = "";
             cbbtenmon.Enabled = true;
-            foreach (string i in LayDanhSachTenMonTheoLoai(cbbLoai.SelectedItem.ToString()))
+            foreach (string i in LayDanhSachTenMonTheoLoai(cbbLoai.SelectedItem.ToString()).Distinct())
             {
                 cbbtenmon.Items.Add(i);
             }
         }
         private void btthemmon_Click(object sender, EventArgs e)
-        {
+        {  
+            
             string tenban = this.tenban;
             bool check = true;
             int sl = Convert.ToInt32(numericUpDown1.Value);
@@ -173,6 +178,7 @@ namespace QLCF
                         i["Số lượng"] = (Convert.ToInt16(i["Số lượng"]) + sl);
                         if (Convert.ToInt16(i["Số lượng"]) <= 0)
                             data.Rows.Remove(i);
+           
                         break;
                     }
                 }
@@ -184,6 +190,7 @@ namespace QLCF
                 buttonc.BackColor = Color.Red;
                 show();
                 SaveData();
+                txttongtien.Text = tongtien().ToString();
             }
             else
             {
@@ -192,9 +199,9 @@ namespace QLCF
 
 
         }
-
-        private void btthanhtoan_Click(object sender, EventArgs e)
+        private int tongtien()
         {
+
             int tongtien = 0;
             string tenban = this.tenban;
             foreach (DataRow i in data.Rows)
@@ -204,17 +211,132 @@ namespace QLCF
                     tongtien += Convert.ToInt16(i["Số lượng"]) * LayGiaTheoTenMon(i["Tên món"].ToString());
                 }
             }
-            txttongtien.Text = tongtien.ToString();
+            return tongtien;
+        }
+        private void btthanhtoan_Click(object sender, EventArgs e)
+        {
+            XHD f = new XHD(data, tenban, tongtien());
+            f.Show();
             buttonc.BackColor = Color.Bisque;
-            string Path = "data.txt";
+            List<DataRow> rowsToDelete = new List<DataRow>();
+            foreach (DataRow row in data.Rows)
+            {
+                if (row["Tên Bàn"].Equals(tenban))
+                    
+                {
+                    rowsToDelete.Add(row);
+                }
+            }
+            foreach (DataRow row in rowsToDelete)
+            {
+                row.Delete();
+            }
+            data.AcceptChanges();
+
+            string Path = "datahoadon.txt";
             StreamWriter F = new StreamWriter(Path);
             foreach (DataRow i in data.Rows)
-                if (!(i["Tên bàn"].Equals(tenban)))
-                {
-                F.WriteLine(i[0] + "," + i[1] + "," + i[2] + "," + i[3]);
-                 }
+               if ((i["Tên bàn"].Equals(tenban)))
+               {
+               F.WriteLine(i[0] + "," + i[1] + "," + i[2] + "," + i[3]);
+               }
             F.Close();
+          
+            SaveData();
+            dataGridView1.DataSource = null;
         }
 
+       
+
+        private void btShow_Click(object sender, EventArgs e)
+        {
+            foreach (Item item in LayDanhSachMonTuFile() )
+            {
+                dataGridView2.Rows.Add(item.loai,item.TenMon,item.DonGia);
+            }
+        }
+
+        private void btsua_Click(object sender, EventArgs e)
+        {   
+            
+            if (dataGridView2.SelectedRows.Count == 1)
+            {
+                dataGridView2.SelectedRows[0].Cells[0].Value = txtloaib.Text ;
+                dataGridView2.SelectedRows[0].Cells[1].Value = txttenmonb.Text;
+                 dataGridView2.SelectedRows[0].Cells[2].Value =txtgiab.Text ;
+            }
+
+            txtgiab.Text = "";
+            txtloaib.Text = "";
+            txttenmonb.Text = "";
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count == 1)
+            {
+                txtloaib.Text = dataGridView2.SelectedRows[0].Cells[0].Value.ToString();
+                txttenmonb.Text = dataGridView2.SelectedRows[0].Cells[1].Value.ToString();
+                txtgiab.Text = dataGridView2.SelectedRows[0].Cells[2].Value.ToString();
+            }
+        }
+        
+        private void btthem_Click(object sender, EventArgs e)
+        {
+            int n = 0;
+            if (int.TryParse(this.txtgiab.Text, out n))
+            {
+            
+                dataGridView2.Rows.Add(txtloaib.Text , txtgiab.Text, txttenmonb.Text);
+
+             }
+            else
+            {
+                MessageBox.Show("Gía phải là số");
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow i in dataGridView2.SelectedRows)
+                {
+                    dataGridView2.Rows.Remove(i);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chọn hàng để xóa");
+            }
+        }
+
+        private void tabControl1_SelectChanged(object sender, EventArgs e)
+        {
+
+            string Path = "Danhsachmon.txt";
+            StreamWriter F = new StreamWriter(Path);
+            foreach (DataGridViewRow i in dataGridView2.Rows)
+            {
+                if (i.Cells[0].Value != null)
+                    F.WriteLine(i.Cells[0].Value + "," + i.Cells[1].Value + "," + i.Cells[2].Value);
+            }
+            
+            F.Close();
+            foreach (string i in LayDaySachLoai())
+            {
+                cbbLoai.Items.Add(i);
+            }
+           
+     
+
+        }
     }
 }
