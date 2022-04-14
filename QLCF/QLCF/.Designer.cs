@@ -30,7 +30,14 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txttongtien = new System.Windows.Forms.TextBox();
+            this.btthanhtoan = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbTenBan = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -58,7 +65,6 @@
             this.btmangve = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.lbTenBan = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,6 +88,12 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.txttongtien);
+            this.tabPage1.Controls.Add(this.btthanhtoan);
+            this.tabPage1.Controls.Add(this.label4);
+            this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Controls.Add(this.flowLayoutPanel3);
@@ -93,6 +105,62 @@
             this.tabPage1.Text = "Oder";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(749, 427);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(110, 34);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Tổng tiền";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(914, 479);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(37, 17);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "VND";
+            // 
+            // txttongtien
+            // 
+            this.txttongtien.Location = new System.Drawing.Point(752, 464);
+            this.txttongtien.Multiline = true;
+            this.txttongtien.Name = "txttongtien";
+            this.txttongtien.Size = new System.Drawing.Size(156, 32);
+            this.txttongtien.TabIndex = 8;
+            // 
+            // btthanhtoan
+            // 
+            this.btthanhtoan.Location = new System.Drawing.Point(568, 454);
+            this.btthanhtoan.Name = "btthanhtoan";
+            this.btthanhtoan.Size = new System.Drawing.Size(141, 42);
+            this.btthanhtoan.TabIndex = 7;
+            this.btthanhtoan.Text = "Thanh toán";
+            this.btthanhtoan.UseVisualStyleBackColor = true;
+            this.btthanhtoan.Click += new System.EventHandler(this.btthanhtoan_Click);
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.Bisque;
+            this.label4.Location = new System.Drawing.Point(8, 464);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 36);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Bàn trống";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(8, 427);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(133, 37);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Chưa thanh toán";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lbTenBan);
@@ -101,6 +169,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(453, 294);
             this.panel2.TabIndex = 5;
+            // 
+            // lbTenBan
+            // 
+            this.lbTenBan.AutoSize = true;
+            this.lbTenBan.Font = new System.Drawing.Font("MingLiU-ExtB", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTenBan.Location = new System.Drawing.Point(174, 15);
+            this.lbTenBan.Name = "lbTenBan";
+            this.lbTenBan.Size = new System.Drawing.Size(0, 27);
+            this.lbTenBan.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -206,162 +283,178 @@
             // 
             // btban1
             // 
+            this.btban1.BackColor = System.Drawing.Color.Bisque;
             this.btban1.Location = new System.Drawing.Point(3, 3);
             this.btban1.Name = "btban1";
             this.btban1.Size = new System.Drawing.Size(98, 92);
             this.btban1.TabIndex = 0;
             this.btban1.Text = "Bàn 1";
-            this.btban1.UseVisualStyleBackColor = true;
+            this.btban1.UseVisualStyleBackColor = false;
             this.btban1.Click += new System.EventHandler(this.button_click);
             // 
             // btban2
             // 
+            this.btban2.BackColor = System.Drawing.Color.Bisque;
             this.btban2.Location = new System.Drawing.Point(107, 3);
             this.btban2.Name = "btban2";
             this.btban2.Size = new System.Drawing.Size(98, 92);
             this.btban2.TabIndex = 0;
             this.btban2.Text = "Bàn 2";
-            this.btban2.UseVisualStyleBackColor = true;
+            this.btban2.UseVisualStyleBackColor = false;
             this.btban2.Click += new System.EventHandler(this.button_click);
             // 
             // btban3
             // 
+            this.btban3.BackColor = System.Drawing.Color.Bisque;
             this.btban3.Location = new System.Drawing.Point(211, 3);
             this.btban3.Name = "btban3";
             this.btban3.Size = new System.Drawing.Size(98, 92);
             this.btban3.TabIndex = 0;
             this.btban3.Text = "Bàn 3";
-            this.btban3.UseVisualStyleBackColor = true;
+            this.btban3.UseVisualStyleBackColor = false;
             this.btban3.Click += new System.EventHandler(this.button_click);
             // 
             // btban4
             // 
+            this.btban4.BackColor = System.Drawing.Color.Bisque;
             this.btban4.Location = new System.Drawing.Point(315, 3);
             this.btban4.Name = "btban4";
             this.btban4.Size = new System.Drawing.Size(98, 92);
             this.btban4.TabIndex = 0;
             this.btban4.Text = "Bàn 4";
-            this.btban4.UseVisualStyleBackColor = true;
+            this.btban4.UseVisualStyleBackColor = false;
             this.btban4.Click += new System.EventHandler(this.button_click);
             // 
             // btban5
             // 
+            this.btban5.BackColor = System.Drawing.Color.Bisque;
             this.btban5.Location = new System.Drawing.Point(3, 101);
             this.btban5.Name = "btban5";
             this.btban5.Size = new System.Drawing.Size(98, 92);
             this.btban5.TabIndex = 0;
             this.btban5.Text = "Bàn 5";
-            this.btban5.UseVisualStyleBackColor = true;
+            this.btban5.UseVisualStyleBackColor = false;
             this.btban5.Click += new System.EventHandler(this.button_click);
             // 
             // btban6
             // 
+            this.btban6.BackColor = System.Drawing.Color.Bisque;
             this.btban6.Location = new System.Drawing.Point(107, 101);
             this.btban6.Name = "btban6";
             this.btban6.Size = new System.Drawing.Size(98, 92);
             this.btban6.TabIndex = 0;
             this.btban6.Text = "Bàn 6";
-            this.btban6.UseVisualStyleBackColor = true;
+            this.btban6.UseVisualStyleBackColor = false;
             this.btban6.Click += new System.EventHandler(this.button_click);
             // 
             // btban7
             // 
+            this.btban7.BackColor = System.Drawing.Color.Bisque;
             this.btban7.Location = new System.Drawing.Point(211, 101);
             this.btban7.Name = "btban7";
             this.btban7.Size = new System.Drawing.Size(98, 92);
             this.btban7.TabIndex = 0;
             this.btban7.Text = "Bàn 7";
-            this.btban7.UseVisualStyleBackColor = true;
+            this.btban7.UseVisualStyleBackColor = false;
             this.btban7.Click += new System.EventHandler(this.button_click);
             // 
             // btban8
             // 
+            this.btban8.BackColor = System.Drawing.Color.Bisque;
             this.btban8.Location = new System.Drawing.Point(315, 101);
             this.btban8.Name = "btban8";
             this.btban8.Size = new System.Drawing.Size(98, 92);
             this.btban8.TabIndex = 0;
             this.btban8.Text = "Bàn 8";
-            this.btban8.UseVisualStyleBackColor = true;
+            this.btban8.UseVisualStyleBackColor = false;
             this.btban8.Click += new System.EventHandler(this.button_click);
             // 
             // btban9
             // 
+            this.btban9.BackColor = System.Drawing.Color.Bisque;
             this.btban9.Location = new System.Drawing.Point(3, 199);
             this.btban9.Name = "btban9";
             this.btban9.Size = new System.Drawing.Size(98, 92);
             this.btban9.TabIndex = 0;
             this.btban9.Text = "Bàn 9";
-            this.btban9.UseVisualStyleBackColor = true;
+            this.btban9.UseVisualStyleBackColor = false;
             this.btban9.Click += new System.EventHandler(this.button_click);
             // 
             // btban10
             // 
+            this.btban10.BackColor = System.Drawing.Color.Bisque;
             this.btban10.Location = new System.Drawing.Point(107, 199);
             this.btban10.Name = "btban10";
             this.btban10.Size = new System.Drawing.Size(98, 92);
             this.btban10.TabIndex = 0;
             this.btban10.Text = "Bàn 10";
-            this.btban10.UseVisualStyleBackColor = true;
+            this.btban10.UseVisualStyleBackColor = false;
             this.btban10.Click += new System.EventHandler(this.button_click);
             // 
             // btban11
             // 
+            this.btban11.BackColor = System.Drawing.Color.Bisque;
             this.btban11.Location = new System.Drawing.Point(211, 199);
             this.btban11.Name = "btban11";
             this.btban11.Size = new System.Drawing.Size(98, 92);
             this.btban11.TabIndex = 0;
             this.btban11.Text = "Bàn 11";
-            this.btban11.UseVisualStyleBackColor = true;
+            this.btban11.UseVisualStyleBackColor = false;
             this.btban11.Click += new System.EventHandler(this.button_click);
             // 
             // btban12
             // 
+            this.btban12.BackColor = System.Drawing.Color.Bisque;
             this.btban12.Location = new System.Drawing.Point(315, 199);
             this.btban12.Name = "btban12";
             this.btban12.Size = new System.Drawing.Size(98, 92);
             this.btban12.TabIndex = 0;
             this.btban12.Text = "Bàn 12";
-            this.btban12.UseVisualStyleBackColor = true;
+            this.btban12.UseVisualStyleBackColor = false;
             this.btban12.Click += new System.EventHandler(this.button_click);
             // 
             // btban13
             // 
+            this.btban13.BackColor = System.Drawing.Color.Bisque;
             this.btban13.Location = new System.Drawing.Point(3, 297);
             this.btban13.Name = "btban13";
             this.btban13.Size = new System.Drawing.Size(98, 92);
             this.btban13.TabIndex = 0;
             this.btban13.Text = "Bàn 13";
-            this.btban13.UseVisualStyleBackColor = true;
+            this.btban13.UseVisualStyleBackColor = false;
             this.btban13.Click += new System.EventHandler(this.button_click);
             // 
             // btban14
             // 
+            this.btban14.BackColor = System.Drawing.Color.Bisque;
             this.btban14.Location = new System.Drawing.Point(107, 297);
             this.btban14.Name = "btban14";
             this.btban14.Size = new System.Drawing.Size(98, 92);
             this.btban14.TabIndex = 0;
             this.btban14.Text = "Bàn 14";
-            this.btban14.UseVisualStyleBackColor = true;
+            this.btban14.UseVisualStyleBackColor = false;
             this.btban14.Click += new System.EventHandler(this.button_click);
             // 
             // btban15
             // 
+            this.btban15.BackColor = System.Drawing.Color.Bisque;
             this.btban15.Location = new System.Drawing.Point(211, 297);
             this.btban15.Name = "btban15";
             this.btban15.Size = new System.Drawing.Size(98, 92);
             this.btban15.TabIndex = 0;
             this.btban15.Text = "Bàn 15";
-            this.btban15.UseVisualStyleBackColor = true;
+            this.btban15.UseVisualStyleBackColor = false;
             this.btban15.Click += new System.EventHandler(this.button_click);
             // 
             // btmangve
             // 
+            this.btmangve.BackColor = System.Drawing.Color.Bisque;
             this.btmangve.Location = new System.Drawing.Point(315, 297);
             this.btmangve.Name = "btmangve";
             this.btmangve.Size = new System.Drawing.Size(98, 92);
             this.btmangve.TabIndex = 0;
             this.btmangve.Text = "Mang về";
-            this.btmangve.UseVisualStyleBackColor = true;
+            this.btmangve.UseVisualStyleBackColor = false;
             this.btmangve.Click += new System.EventHandler(this.button_click);
             // 
             // tabPage2
@@ -369,7 +462,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(983, 526);
+            this.tabPage2.Size = new System.Drawing.Size(997, 519);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Món ăn";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -379,19 +472,10 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(983, 526);
+            this.tabPage3.Size = new System.Drawing.Size(997, 519);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Thống kê";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // lbTenBan
-            // 
-            this.lbTenBan.AutoSize = true;
-            this.lbTenBan.Font = new System.Drawing.Font("MingLiU-ExtB", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenBan.Location = new System.Drawing.Point(174, 15);
-            this.lbTenBan.Name = "lbTenBan";
-            this.lbTenBan.Size = new System.Drawing.Size(0, 27);
-            this.lbTenBan.TabIndex = 1;
             // 
             // Form1
             // 
@@ -405,6 +489,7 @@
             this.Text = "QUẢN LÝ TÍNH TIỀN CAFE";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -448,6 +533,12 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btthemmon;
         private System.Windows.Forms.Label lbTenBan;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txttongtien;
+        private System.Windows.Forms.Button btthanhtoan;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
 
