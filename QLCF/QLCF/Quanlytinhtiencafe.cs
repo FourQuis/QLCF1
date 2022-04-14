@@ -55,13 +55,14 @@ namespace QLCF
             {
                 string[] m = s.Split(',');
 
-                data.Rows.Add(m[0], m[1], Convert.ToInt16(m[2]), Convert.ToInt16(m[3]));
+                data.Rows.Add(m[0], m[1], Convert.ToInt64(m[2]), Convert.ToInt64(m[3]));
             }
             sr.Close();
         }
 
         public List<Item> LayDanhSachMonTuFile()
         {
+            
             List<Item> list = new List<Item>();
             string Path = "Danhsachmon.txt";
             StreamReader sr = File.OpenText(Path);
@@ -69,7 +70,7 @@ namespace QLCF
             while ((s = sr.ReadLine()) != null)
             {
                 string[] m = s.Split(',');
-                list.Add(new Item(m[2], Convert.ToInt32(m[1]), m[0]));
+                list.Add(new Item(m[0], m[1], Convert.ToInt32(m[2])));
             }
             sr.Close();
             return list;
@@ -80,7 +81,7 @@ namespace QLCF
             List<string> list = new List<string>();
             foreach (Item i in LayDanhSachMonTuFile())
             {
-                if (i.loai == Loai)
+                if (i.loai.Equals(Loai))
                     list.Add(i.TenMon);
             }
             return list;
@@ -250,6 +251,7 @@ namespace QLCF
 
         private void btShow_Click(object sender, EventArgs e)
         {
+            
             foreach (Item item in LayDanhSachMonTuFile() )
             {
                 dataGridView2.Rows.Add(item.loai,item.TenMon,item.DonGia);
@@ -287,21 +289,26 @@ namespace QLCF
             if (int.TryParse(this.txtgiab.Text, out n))
             {
             
-                dataGridView2.Rows.Add(txtloaib.Text , txtgiab.Text, txttenmonb.Text);
-
+                dataGridView2.Rows.Add(txtloaib.Text , txttenmonb.Text,txtgiab.Text);
              }
             else
             {
                 MessageBox.Show("Gía phải là số");
             }
+            string Path = "Danhsachmon.txt";
+            StreamWriter F = new StreamWriter(Path);
+            foreach (DataGridViewRow i in dataGridView2.Rows)
+            {
+                if (i.Cells[0].Value != null && i.Cells[0].Value!=Tenmon)
+                    F.WriteLine(i.Cells[0].Value + "," + i.Cells[1].Value + "," + i.Cells[2].Value);
+            }
+            F.Close();
+            foreach (string i in LayDaySachLoai().Distinct())
+            {
+                cbbLoai.Items.Add(i);
+            }
+
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-       
 
         private void btXoa_Click(object sender, EventArgs e)
         {
@@ -320,7 +327,11 @@ namespace QLCF
 
         private void tabControl1_SelectChanged(object sender, EventArgs e)
         {
-
+            dataGridView2.Rows.Clear();
+            foreach (Item item in LayDanhSachMonTuFile())
+            {
+                dataGridView2.Rows.Add(item.loai, item.TenMon, item.DonGia);
+            }
             string Path = "Danhsachmon.txt";
             StreamWriter F = new StreamWriter(Path);
             foreach (DataGridViewRow i in dataGridView2.Rows)
@@ -328,15 +339,11 @@ namespace QLCF
                 if (i.Cells[0].Value != null)
                     F.WriteLine(i.Cells[0].Value + "," + i.Cells[1].Value + "," + i.Cells[2].Value);
             }
-            
             F.Close();
-            foreach (string i in LayDaySachLoai())
-            {
-                cbbLoai.Items.Add(i);
-            }
            
-     
 
         }
+
+
     }
 }

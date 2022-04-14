@@ -11,11 +11,11 @@ namespace QLCF
         public string TenMon;
         public int DonGia;
         public string loai;
-        public Item(string a, int b, string c)
+        public Item(string a, string b, int c)
         {
-            TenMon = a;
-            DonGia = b;
-            loai = c;
+            TenMon = b;
+            DonGia = c;
+            loai = a;
         }
     }
 }
