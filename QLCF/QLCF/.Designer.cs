@@ -70,7 +70,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.btthem = new System.Windows.Forms.Button();
             this.btXoa = new System.Windows.Forms.Button();
-            this.btShow = new System.Windows.Forms.Button();
             this.btsua = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -81,13 +80,13 @@
             this.Tenmon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.cbbtenmonan = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.btnapply = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cbbtenmonan = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -581,7 +580,6 @@
             // 
             this.panel4.Controls.Add(this.btthem);
             this.panel4.Controls.Add(this.btXoa);
-            this.panel4.Controls.Add(this.btShow);
             this.panel4.Controls.Add(this.btsua);
             this.panel4.Location = new System.Drawing.Point(27, 5);
             this.panel4.Name = "panel4";
@@ -590,7 +588,7 @@
             // 
             // btthem
             // 
-            this.btthem.Location = new System.Drawing.Point(270, 17);
+            this.btthem.Location = new System.Drawing.Point(236, 17);
             this.btthem.Name = "btthem";
             this.btthem.Size = new System.Drawing.Size(75, 47);
             this.btthem.TabIndex = 0;
@@ -600,7 +598,7 @@
             // 
             // btXoa
             // 
-            this.btXoa.Location = new System.Drawing.Point(93, 14);
+            this.btXoa.Location = new System.Drawing.Point(20, 14);
             this.btXoa.Name = "btXoa";
             this.btXoa.Size = new System.Drawing.Size(75, 47);
             this.btXoa.TabIndex = 0;
@@ -608,19 +606,9 @@
             this.btXoa.UseVisualStyleBackColor = true;
             this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
-            // btShow
-            // 
-            this.btShow.Location = new System.Drawing.Point(3, 14);
-            this.btShow.Name = "btShow";
-            this.btShow.Size = new System.Drawing.Size(75, 47);
-            this.btShow.TabIndex = 0;
-            this.btShow.Text = "Xem";
-            this.btShow.UseVisualStyleBackColor = true;
-            this.btShow.Click += new System.EventHandler(this.btShow_Click);
-            // 
             // btsua
             // 
-            this.btsua.Location = new System.Drawing.Point(174, 17);
+            this.btsua.Location = new System.Drawing.Point(122, 14);
             this.btsua.Name = "btsua";
             this.btsua.Size = new System.Drawing.Size(75, 47);
             this.btsua.TabIndex = 0;
@@ -713,49 +701,15 @@
             this.tabPage3.Text = "Thống kê";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // btnapply
             // 
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(36, 99);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(682, 296);
-            this.dataGridView3.TabIndex = 0;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "\"MM/dd/yyyy hh:mm:ss\"";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(84, 18);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "\"MM/dd/yyyy hh:mm:ss\"";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(322, 18);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 2;
-            // 
-            // cbbtenmonan
-            // 
-            this.cbbtenmonan.FormattingEnabled = true;
-            this.cbbtenmonan.Location = new System.Drawing.Point(575, 18);
-            this.cbbtenmonan.Name = "cbbtenmonan";
-            this.cbbtenmonan.Size = new System.Drawing.Size(121, 21);
-            this.cbbtenmonan.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(48, 18);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 13);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "From";
+            this.btnapply.Location = new System.Drawing.Point(312, 64);
+            this.btnapply.Name = "btnapply";
+            this.btnapply.Size = new System.Drawing.Size(75, 23);
+            this.btnapply.TabIndex = 6;
+            this.btnapply.Text = "Áp dụng";
+            this.btnapply.UseVisualStyleBackColor = true;
+            this.btnapply.Click += new System.EventHandler(this.btnapply_Click);
             // 
             // label11
             // 
@@ -766,15 +720,50 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "To";
             // 
-            // btnapply
+            // label8
             // 
-            this.btnapply.Location = new System.Drawing.Point(312, 64);
-            this.btnapply.Name = "btnapply";
-            this.btnapply.Size = new System.Drawing.Size(75, 23);
-            this.btnapply.TabIndex = 6;
-            this.btnapply.Text = "Áp dụng";
-            this.btnapply.UseVisualStyleBackColor = true;
-            this.btnapply.Click += new System.EventHandler(this.btnapply_Click);
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(48, 18);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(30, 13);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "From";
+            // 
+            // cbbtenmonan
+            // 
+            this.cbbtenmonan.FormattingEnabled = true;
+            this.cbbtenmonan.Location = new System.Drawing.Point(575, 18);
+            this.cbbtenmonan.Name = "cbbtenmonan";
+            this.cbbtenmonan.Size = new System.Drawing.Size(121, 21);
+            this.cbbtenmonan.TabIndex = 3;
+            this.cbbtenmonan.SelectedIndexChanged += new System.EventHandler(this.cbbtenmonan_SelectedIndexChanged);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.CustomFormat = "\"MM/dd/yyyy hh:mm:ss\"";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(322, 18);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 2;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.CustomFormat = "\"MM/dd/yyyy hh:mm:ss\"";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(84, 18);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 1;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(36, 99);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(682, 296);
+            this.dataGridView3.TabIndex = 0;
             // 
             // Form1
             // 
@@ -854,7 +843,6 @@
         private System.Windows.Forms.Button btXoa;
         private System.Windows.Forms.Button btthem;
         private System.Windows.Forms.Button btsua;
-        private System.Windows.Forms.Button btShow;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn LOAI;

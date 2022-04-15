@@ -280,8 +280,7 @@ namespace QLCF
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbbtenmon.Items.Clear();
+        {   cbbtenmon.Items.Clear();
             cbbtenmon.SelectedItem = null;
             cbbtenmon.Text = "";
             cbbtenmon.Enabled = true;
@@ -379,6 +378,7 @@ namespace QLCF
             {
                 dataGridView2.Rows.Add(item.loai,item.TenMon,item.DonGia);
             }
+            
         }
 
         private void btsua_Click(object sender, EventArgs e)
@@ -426,6 +426,9 @@ namespace QLCF
                     F.WriteLine(i.Cells[0].Value + "," + i.Cells[1].Value + "," + i.Cells[2].Value);
             }
             F.Close();
+           
+            //cbbtenmon.Items.Clear();
+            cbbLoai.Items.Clear();
             foreach (string i in LayDaySachLoai().Distinct())
             {
                 cbbLoai.Items.Add(i);
@@ -463,8 +466,10 @@ namespace QLCF
                     F.WriteLine(i.Cells[0].Value + "," + i.Cells[1].Value + "," + i.Cells[2].Value);
             }
             F.Close();
+            cbbtenmonan.Items.Clear();
             cbbtenmonan.Items.Add("Tất cả món ăn");
             cbbtenmonan.Items.Add("Hóa đơn");
+     
             foreach(string s in LayDanhSachTenMonTheoLoai(""))
             {
                 cbbtenmonan.Items.Add(s);
@@ -476,6 +481,11 @@ namespace QLCF
         {
             if(cbbtenmonan.SelectedIndex > -1)
             dataGridView3.DataSource = DuLieuThongKe(cbbtenmonan.SelectedItem.ToString(), dateTimePicker1.Value, dateTimePicker2.Value);
+        }
+
+        private void cbbtenmonan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
