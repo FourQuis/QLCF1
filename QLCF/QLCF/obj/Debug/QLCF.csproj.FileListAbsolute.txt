@@ -43,3 +43,4 @@ C:\Users\levan\OneDrive\Máy tính\QLCF1\QLCF\QLCF\obj\Debug\QLCF.csproj.CoreCom
 C:\Users\levan\OneDrive\Máy tính\QLCF1\QLCF\QLCF\obj\Debug\QLCF.exe
 C:\Users\levan\OneDrive\Máy tính\QLCF1\QLCF\QLCF\obj\Debug\QLCF.pdb
 C:\Users\levan\OneDrive\Máy tính\QLCF1\QLCF\QLCF\obj\Debug\QLCF.XHD.resources
+C:\Users\nhamq\Desktop\QLCF1\QLCF\QLCF\obj\Debug\QLCF.XHD.resources

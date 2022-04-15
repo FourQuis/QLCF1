@@ -18,6 +18,7 @@ namespace QLCF
         List<Item> items;
         string tenban;
         Button buttonc;
+        DataTable ThongKe;
         public Form1()
         {
             items = LayDanhSachMonTuFile();
@@ -33,6 +34,13 @@ namespace QLCF
                 new DataColumn{ColumnName ="Số lượng",DataType=typeof(int)},
                 new DataColumn{ColumnName ="Giá",DataType=typeof (int)},
             });
+            ThongKe = new DataTable();
+            ThongKe.Columns.AddRange(new DataColumn[] {
+                new DataColumn {ColumnName = "Thời gian", DataType = typeof(DateTime)},
+                new DataColumn {ColumnName =  "Bàn", DataType = typeof(string)},
+                new DataColumn {ColumnName = "Tông tiền", DataType=typeof(double)},
+            });
+
             LoadData();
             foreach (DataRow row in data.Rows)
             {
@@ -46,6 +54,8 @@ namespace QLCF
                 }
             }
         }
+
+        // Hàm xử lí
         public void LoadData()
         {
             string path = "data.txt";
@@ -79,6 +89,14 @@ namespace QLCF
         public List<string> LayDanhSachTenMonTheoLoai(string Loai)
         {
             List<string> list = new List<string>();
+            if(Loai == "")
+            {
+                foreach (Item i in LayDanhSachMonTuFile())
+                {
+                    list.Add(i.TenMon);
+                }
+            }    
+            else
             foreach (Item i in LayDanhSachMonTuFile())
             {
                 if (i.loai.Equals(Loai))
@@ -139,7 +157,116 @@ namespace QLCF
             F.Close();
 
         }
+        private int tongtien()
+        {
 
+            int tongtien = 0;
+            string tenban = this.tenban;
+            foreach (DataRow i in data.Rows)
+            {
+                if (i["Tên bàn"].Equals(tenban))
+                {
+                    tongtien += Convert.ToInt16(i["Số lượng"]) * LayGiaTheoTenMon(i["Tên món"].ToString());
+                }
+            }
+            return tongtien;
+        }
+
+        private DataTable DuLieuThongKe(string txt, DateTime from, DateTime to)
+        {
+            DataTable dt = new DataTable();
+            int tong = 0;
+            if(txt == "Hóa đơn")
+            {
+                dt.Columns.AddRange(new DataColumn[]
+                {
+                    new DataColumn("Thời gian", typeof(DateTime)),
+                    new DataColumn("Tên bàn", typeof(string)),
+                    new DataColumn("Tổng tiền", typeof(int))
+                });
+
+                string path = "datathongke.txt";
+                StreamReader sr = new StreamReader(path);
+                string s;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    string[] m = s.Split(',');
+                    DateTime time = Convert.ToDateTime(m[0]);
+                    int tien = Convert.ToInt32(m[2]);
+                    if (time >= from && time <= to)
+                    {
+                        dt.Rows.Add(time, m[1], tien);
+                        tong += tien;
+                    }
+                }
+                sr.Close();
+                dt.Rows.Add(null, "Tổng", tong);
+            }    
+            else if(txt == "Tất cả món ăn")
+            {
+                dt.Columns.AddRange(new DataColumn[]
+               {
+                    new DataColumn("Thời gian", typeof(DateTime)),
+                    new DataColumn("Tên bàn", typeof(string)),
+                    new DataColumn("Tên món", typeof(string)),
+                    new DataColumn("Số lượng", typeof(int)),
+                    new DataColumn("Đơn giá", typeof(int)),
+
+               });
+
+                string path = "datahoadon.txt";
+                StreamReader sr = new StreamReader(path);
+                string s;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    string[] m = s.Split(',');
+                    DateTime time = Convert.ToDateTime(m[0]);
+                    int sl = Convert.ToInt16(m[3]);
+                    int dongia = Convert.ToInt32(m[4]);
+                    if (time >= from && time <= to)
+                    {
+                        Console.WriteLine(m[4]);
+                        dt.Rows.Add(time, m[1], m[2],sl , dongia);
+                        tong += sl * dongia;
+                    }
+                }
+                dt.Rows.Add(null, "", "Tổng tiền", null, tong);
+                sr.Close();
+            }
+            else
+            {
+                dt.Columns.AddRange(new DataColumn[]
+              {
+                    new DataColumn("Thời gian", typeof(DateTime)),
+                    new DataColumn("Tên bàn", typeof(string)),
+                    new DataColumn("Tên món", typeof(string)),
+                    new DataColumn("Số lượng", typeof(int)),
+                    new DataColumn("Đơn giá", typeof(int)),
+
+              });
+
+                string path = "datahoadon.txt";
+                StreamReader sr = new StreamReader(path);
+                string s;
+                while ((s = sr.ReadLine()) != null)
+                {
+                    string[] m = s.Split(',');
+                    DateTime time = Convert.ToDateTime(m[0]);
+                    int sl = Convert.ToInt16(m[3]);
+                    int dongia = Convert.ToInt32(m[4]);
+                    if (time >= from && time <= to && txt == m[2])
+                    {
+                        Console.WriteLine(m[4]);
+                        dt.Rows.Add(time, m[1], m[2], sl, dongia);
+                        tong += sl * dongia;
+                    }
+                }
+                dt.Rows.Add(null, "", "Tổng tiền", null, tong);
+                sr.Close();
+            }    
+            return dt;
+        }
+        // Tab 1
         private void button_click(object sender, EventArgs e)
         {
             txttongtien.Text = tongtien().ToString();
@@ -148,6 +275,7 @@ namespace QLCF
             buttonc = button;
             tenban = button.Text;
             lbTenBan.Text = button.Text.ToString();
+            txttongtien.Text = tongtien().ToString();
             show();
         }
 
@@ -200,24 +328,27 @@ namespace QLCF
 
 
         }
-        private int tongtien()
-        {
-
-            int tongtien = 0;
-            string tenban = this.tenban;
-            foreach (DataRow i in data.Rows)
-            {
-                if (i["Tên bàn"].Equals(tenban))
-                {
-                    tongtien += Convert.ToInt16(i["Số lượng"]) * LayGiaTheoTenMon(i["Tên món"].ToString());
-                }
-            }
-            return tongtien;
-        }
+       
         private void btthanhtoan_Click(object sender, EventArgs e)
         {
-            XHD f = new XHD(data, tenban, tongtien());
-            f.Show();
+            //XHD f = new XHD(data, tenban, tongtien());
+            //f.Show();
+            if (txttongtien.Text == "0")
+                return;
+            string Path = "datahoadon.txt";
+            using (StreamWriter F = File.AppendText(Path))
+            {
+            foreach (DataRow i in data.Rows)
+                if ((i["Tên bàn"].Equals(tenban)))
+                {
+                    F.WriteLine(DateTime.Now.ToString() +","+ i[0] + "," + i[1] + "," + i[2] + "," + i[3]);
+                }
+            }
+            Path = "datathongke.txt";
+            using (StreamWriter F = File.AppendText(Path))
+            {
+                F.WriteLine(DateTime.Now.ToString() +","+tenban+"," + txttongtien.Text);
+            }
             buttonc.BackColor = Color.Bisque;
             List<DataRow> rowsToDelete = new List<DataRow>();
             foreach (DataRow row in data.Rows)
@@ -233,22 +364,14 @@ namespace QLCF
                 row.Delete();
             }
             data.AcceptChanges();
-
-            string Path = "datahoadon.txt";
-            StreamWriter F = new StreamWriter(Path);
-            foreach (DataRow i in data.Rows)
-               if ((i["Tên bàn"].Equals(tenban)))
-               {
-               F.WriteLine(i[0] + "," + i[1] + "," + i[2] + "," + i[3]);
-               }
-            F.Close();
           
             SaveData();
             dataGridView1.DataSource = null;
+            txttongtien.Text = "0";
         }
 
        
-
+        // tab 2
         private void btShow_Click(object sender, EventArgs e)
         {
             
@@ -340,10 +463,19 @@ namespace QLCF
                     F.WriteLine(i.Cells[0].Value + "," + i.Cells[1].Value + "," + i.Cells[2].Value);
             }
             F.Close();
-           
+            cbbtenmonan.Items.Add("Tất cả món ăn");
+            cbbtenmonan.Items.Add("Hóa đơn");
+            foreach(string s in LayDanhSachTenMonTheoLoai(""))
+            {
+                cbbtenmonan.Items.Add(s);
+            }    
 
         }
 
-
+        private void btnapply_Click(object sender, EventArgs e)
+        {
+            if(cbbtenmonan.SelectedIndex > -1)
+            dataGridView3.DataSource = DuLieuThongKe(cbbtenmonan.SelectedItem.ToString(), dateTimePicker1.Value, dateTimePicker2.Value);
+        }
     }
 }
